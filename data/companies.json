@@ -1,0 +1,578 @@
+[
+  {
+    "id": "cn_001",
+    "name": "Fuzhou Nice Youpin Wujiang Electronic Commerce Co., Ltd.",
+    "country": "China",
+    "region": "Fujian",
+    "categories": ["tshirt", "oversize"],
+    "moq_min": 30,
+    "price_range": [300, 550],
+    "lead_time_days": [7, 20],
+    "capabilities": ["digital_print", "embroidery", "silk_print", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 5,
+    "trust_score": 4
+  },
+  {
+    "id": "cn_002",
+    "name": "Fuzhou Land-Ocean Co., Ltd.",
+    "country": "China",
+    "region": "Fujian",
+    "categories": ["tshirt"],
+    "moq_min": 50,
+    "price_range": [280, 450],
+    "lead_time_days": [10, 25],
+    "capabilities": ["screen_print", "digital_print"],
+    "languages": ["en", "cn"],
+    "years_active": 21,
+    "trust_score": 5
+  },
+  {
+    "id": "cn_003",
+    "name": "Shenzhen Chuangjiayi E-Commerce Co., Ltd.",
+    "country": "China",
+    "region": "Shenzhen",
+    "categories": ["tshirt", "heavyweight", "vintage"],
+    "moq_min": 10,
+    "price_range": [280, 500],
+    "lead_time_days": [7, 18],
+    "capabilities": ["vintage_wash", "heavyweight", "print"],
+    "languages": ["en", "cn"],
+    "years_active": 6,
+    "trust_score": 4
+  },
+  {
+    "id": "hk_001",
+    "name": "HONG KONG MAN SHAN INDUSTRY LIMITED",
+    "country": "Hong Kong",
+    "region": "Hong Kong",
+    "categories": ["tshirt"],
+    "moq_min": 2,
+    "price_range": [290, 400],
+    "lead_time_days": [5, 14],
+    "capabilities": ["basic_print"],
+    "languages": ["en"],
+    "years_active": 1,
+    "trust_score": 2
+  },
+  {
+    "id": "cn_005",
+    "name": "Dongguan City Topshow Garment Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "streetwear", "vintage", "drop_shoulder"],
+    "moq_min": 50,
+    "price_range": [600, 900],
+    "lead_time_days": [7, 20],
+    "features": {
+      "vintage": true,
+      "heavyweight": false,
+      "oversize": true,
+      "distressed": true,
+      "small_lot": false,
+      "mass_production": false,
+      "street_focused": true
+    },
+    "capabilities": ["vintage_wash", "distressed", "print"],
+    "languages": ["en", "cn"],
+    "years_active": 10,
+    "trust_score": 5,
+    "alibaba_company_url": "https://topshowfashion.en.alibaba.com"
+  },
+  {
+    "id": "hk_002",
+    "name": "Quarto International Trade Limited",
+    "country": "Hong Kong",
+    "region": "Hong Kong",
+    "categories": ["tshirt", "basic"],
+    "moq_min": 2,
+    "price_range": [350, 450],
+    "lead_time_days": [5, 15],
+    "features": {
+      "vintage": false,
+      "heavyweight": false,
+      "oversize": false,
+      "distressed": false,
+      "small_lot": true,
+      "mass_production": false,
+      "street_focused": false
+    },
+    "capabilities": ["basic_print", "custom_label"],
+    "languages": ["en"],
+    "years_active": 1,
+    "trust_score": 3,
+    "alibaba_company_url": "https://quarto.en.alibaba.com"
+  },
+  {
+    "id": "cn_006",
+    "name": "Yongtai Yunduan E-Commerce Co., Ltd.",
+    "country": "China",
+    "region": "Fujian",
+    "categories": ["tshirt", "oversize", "heavyweight"],
+    "moq_min": 2,
+    "price_range": [450, 650],
+    "lead_time_days": [7, 18],
+    "features": {
+      "vintage": false,
+      "heavyweight": true,
+      "oversize": true,
+      "distressed": false,
+      "small_lot": true,
+      "mass_production": false,
+      "street_focused": true
+    },
+    "capabilities": ["puff_print", "heavyweight", "custom_packaging"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 4,
+    "alibaba_company_url": "https://yunduan.en.alibaba.com"
+  },
+  {
+    "id": "cn_007",
+    "name": "Guangzhou Laite Clothing Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "oversize", "mass_production"],
+    "moq_min": 2000,
+    "price_range": [200, 400],
+    "lead_time_days": [10, 30],
+    "features": {
+      "vintage": false,
+      "heavyweight": true,
+      "oversize": true,
+      "distressed": false,
+      "small_lot": false,
+      "mass_production": true,
+      "street_focused": false
+    },
+    "capabilities": ["screen_print", "bulk_production"],
+    "languages": ["en", "cn"],
+    "years_active": 7,
+    "trust_score": 4,
+    "alibaba_company_url": "https://laitetextile.en.alibaba.com"
+  },
+  {
+    "id": "dongguan-flya-clothing",
+    "name": "Dongguan Flya Clothing Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt"],
+    "moq_min": 3,
+    "price_range": [223, 447],
+    "lead_time_days": [7, 20],
+    "features": {
+      "heavyweight": true,
+      "oversize": true,
+      "small_lot": true,
+      "street_focused": true
+    },
+    "capabilities": ["embroidery", "print", "wash", "tie-dye"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 2
+  },
+  {
+    "id": "shenzhen-buou-sports",
+    "name": "Shenzhen Buou Sports Technology Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt"],
+    "moq_min": 25,
+    "price_range": [188, 360],
+    "lead_time_days": [10, 25],
+    "features": {
+      "oversize": true,
+      "mass_production": true
+    },
+    "capabilities": ["print", "custom-logo"],
+    "languages": ["en", "cn"],
+    "years_active": 8,
+    "trust_score": 4
+  },
+  {
+    "id": "tonton-sportswear-shenzhen",
+    "name": "Tonton Sportswear (Shenzhen) Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["sportswear", "jersey"],
+    "moq_min": 10,
+    "price_range": [598, 973],
+    "lead_time_days": [7, 15],
+    "capabilities": ["digital_print", "embroidery"],
+    "languages": ["en", "cn"],
+    "years_active": 11,
+    "trust_score": 5
+  },
+  {
+    "id": "guangzhou-baiyun-jianggao",
+    "name": "Guangzhou Baiyun District Jianggao Etai Garment Factory",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt"],
+    "moq_min": 30,
+    "price_range": [268, 494],
+    "lead_time_days": [10, 25],
+    "capabilities": ["heat-transfer-print", "custom-logo"],
+    "languages": ["en", "cn"],
+    "years_active": 11,
+    "trust_score": 4
+  },
+  {
+    "id": "putian-jiamaosheng",
+    "name": "Putian Jiamaosheng Custom Clothing Co., Ltd.",
+    "country": "China",
+    "region": "Fujian",
+    "categories": ["cap"],
+    "moq_min": 10,
+    "price_range": [128, 240],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true,
+      "mass_production": true
+    },
+    "capabilities": ["digital_print", "heat-transfer", "embroidery", "custom-logo"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 4
+  },
+  {
+    "id": "jibil-zhenjiang",
+    "name": "Jibil (Zhenjiang) Promotion LLC",
+    "country": "China",
+    "region": "Jiangsu",
+    "categories": ["cap"],
+    "moq_min": 1,
+    "price_range": [553, 598],
+    "lead_time_days": [7, 18],
+    "features": {
+      "small_lot": true
+    },
+    "capabilities": ["3d_embroidery"],
+    "languages": ["en", "cn"],
+    "years_active": 8,
+    "trust_score": 5
+  },
+  {
+    "id": "qingdao-qianfeng",
+    "name": "Qingdao Qianfeng Capart Int'l Corp.",
+    "country": "China",
+    "region": "Qingdao",
+    "categories": ["cap"],
+    "moq_min": 1,
+    "price_range": [113, 285],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true,
+      "mass_production": true
+    },
+    "capabilities": ["embroidery"],
+    "languages": ["en", "cn"],
+    "years_active": 8,
+    "trust_score": 5
+  },
+  {
+    "id": "zhongshan-aosheng",
+    "name": "Zhongshan Aosheng Garment Accessories Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["cap"],
+    "moq_min": 50,
+    "price_range": [146, 206],
+    "lead_time_days": [7, 18],
+    "features": {
+      "small_lot": false,
+      "mass_production": true
+    },
+    "capabilities": ["3d_embroidery", "hand_embroidery", "heat-transfer"],
+    "languages": ["en", "cn"],
+    "years_active": 3,
+    "trust_score": 4
+  },
+  {
+    "id": "lianchi-spruce",
+    "name": "Lianchi District Spruce Clothing Trade Department",
+    "country": "China",
+    "region": "Hebei",
+    "categories": ["cap"],
+    "moq_min": 2,
+    "price_range": [292, 337],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true,
+      "street_focused": true
+    },
+    "capabilities": ["3d_embroidery"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 2
+  },
+  {
+    "id": "nanjing-hottrend",
+    "name": "Nanjing Hottrend Textile Co., Ltd.",
+    "country": "China",
+    "region": "Jiangsu",
+    "categories": ["cap"],
+    "moq_min": 10,
+    "price_range": [80, 141],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true,
+      "mass_production": true
+    },
+    "capabilities": ["3d_embroidery"],
+    "languages": ["en", "cn"],
+    "years_active": 9,
+    "trust_score": 5
+  },
+  {
+    "id": "hangzhou-new-emperor",
+    "name": "Hangzhou New Emperor Import And Export Co., Ltd.",
+    "country": "China",
+    "region": "Zhejiang",
+    "categories": ["cap"],
+    "moq_min": 10,
+    "price_range": [89, 120],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true,
+      "mass_production": true
+    },
+    "capabilities": ["embroidery"],
+    "languages": ["en", "cn"],
+    "years_active": 9,
+    "trust_score": 5
+  },
+  {
+    "id": "xinming-cap",
+    "name": "XINMING Cap Manufacturer",
+    "country": "China",
+    "region": "China",
+    "categories": ["cap"],
+    "moq_min": 10,
+    "price_range": [90, 120],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true
+    },
+    "capabilities": ["3d_embroidery"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 2
+  },
+  {
+    "id": "taizhou-haina",
+    "name": "Taizhou Haina Clothing Co., Ltd.",
+    "country": "China",
+    "region": "Zhejiang",
+    "categories": ["cap"],
+    "moq_min": 50,
+    "price_range": [164, 487],
+    "lead_time_days": [7, 20],
+    "features": {
+      "mass_production": true,
+      "street_focused": true
+    },
+    "capabilities": ["3d_embroidery", "custom-logo"],
+    "languages": ["en", "cn"],
+    "years_active": 6,
+    "trust_score": 5
+  },
+  {
+    "id": "taiqian-haina",
+    "name": "Taiqian Haina Clothing Co., Ltd.",
+    "country": "China",
+    "region": "Henan",
+    "categories": ["cap"],
+    "moq_min": 50,
+    "price_range": [162, 481],
+    "lead_time_days": [7, 20],
+    "features": {
+      "mass_production": true
+    },
+    "capabilities": ["embroidery", "3d_embroidery", "screen_print", "custom-logo", "custom-color"],
+    "languages": ["en", "cn"],
+    "years_active": 6,
+    "trust_score": 4
+  },
+  {
+    "id": "fuzhou-hatware",
+    "name": "Fuzhou Hatware Import And Export Co., Ltd.",
+    "country": "China",
+    "region": "Fujian",
+    "categories": ["cap"],
+    "moq_min": 50,
+    "price_range": [165, 199],
+    "lead_time_days": [7, 20],
+    "features": {
+      "mass_production": true
+    },
+    "capabilities": ["3d_embroidery", "heat-transfer", "custom-logo", "custom"],
+    "languages": ["en", "cn"],
+    "years_active": 2,
+    "trust_score": 3
+  },
+  {
+    "id": "guangzhou-healong",
+    "name": "Guangzhou Healong Sportswear Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["cap"],
+    "moq_min": 10,
+    "price_range": [148, 296],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true,
+      "street_focused": true
+    },
+    "capabilities": ["embroidery", "custom-logo", "custom-packaging"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 4
+  },
+  {
+    "id": "ningbo-cmax",
+    "name": "Ningbo Cmax Textile Co., Ltd.",
+    "country": "China",
+    "region": "Zhejiang",
+    "categories": ["cap"],
+    "moq_min": 2,
+    "price_range": [122, 222],
+    "lead_time_days": [7, 20],
+    "features": {
+      "vintage": true,
+      "small_lot": true,
+      "street_focused": true,
+      "distressed": true
+    },
+    "capabilities": ["embroidery", "custom-logo", "custom"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 4
+  },
+  {
+    "id": "shijiazhuang-dongqi",
+    "name": "Shijiazhuang Dongqi Technology Co., Ltd.",
+    "country": "China",
+    "region": "Hebei",
+    "categories": ["cap"],
+    "moq_min": 25,
+    "price_range": [74, 148],
+    "lead_time_days": [7, 20],
+    "features": {
+      "mass_production": true
+    },
+    "capabilities": ["embroidery", "custom-logo", "custom-packaging"],
+    "languages": ["en", "cn"],
+    "years_active": 1,
+    "trust_score": 4
+  },
+  {
+    "id": "mic_001",
+    "name": "Guangzhou Unithundred Garment Co., Ltd",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "hoodie", "sweatshirt"],
+    "moq_min": 30,
+    "price_range": [465, 1800],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true
+    },
+    "capabilities": ["digital_print", "embroidery", "label", "custom_logo"],
+    "languages": ["en", "cn"],
+    "years_active": 5,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_002",
+    "name": "Zhongshan Chujian Clothing Co., Ltd",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "hoodie", "pants", "sweatshirt"],
+    "moq_min": 1,
+    "price_range": [600, 1050],
+    "lead_time_days": [7, 18],
+    "features": {
+      "small_lot": true
+    },
+    "capabilities": ["digital_print", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 3,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_003",
+    "name": "Jiaxing Leeshow International Trading Co., Ltd",
+    "country": "China",
+    "region": "Zhejiang",
+    "categories": ["tshirt", "cap"],
+    "moq_min": 500,
+    "price_range": [375, 600],
+    "lead_time_days": [10, 25],
+    "features": {
+      "mass_production": true
+    },
+    "capabilities": ["digital_print", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 8,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_004",
+    "name": "Guangzhou Ingor Sportswear Co., Ltd",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "hoodie", "sportswear"],
+    "moq_min": 100,
+    "price_range": [900, 1275],
+    "lead_time_days": [10, 25],
+    "features": {
+      "small_lot": false,
+      "mass_production": false
+    },
+    "capabilities": ["digital_print", "embroidery", "silk_print", "label", "custom_logo"],
+    "languages": ["en", "cn"],
+    "years_active": 13,
+    "trust_score": 4,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_005",
+    "name": "Hangzhou (Guangzhou) Clothing Industry Co., Ltd",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "hoodie", "polo", "sportswear"],
+    "moq_min": 200,
+    "price_range": [225, 645],
+    "lead_time_days": [7, 20],
+    "features": {
+      "mass_production": true
+    },
+    "capabilities": ["digital_print", "screen_print", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 27,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_006",
+    "name": "Hangzhou Meixite Digital Printing Co., Ltd",
+    "country": "China",
+    "region": "Zhejiang",
+    "categories": ["tshirt", "hoodie"],
+    "moq_min": 20,
+    "price_range": [1350, 3000],
+    "lead_time_days": [7, 18],
+    "features": {
+      "small_lot": true
+    },
+    "capabilities": ["digital_print", "screen_print", "label", "custom_logo"],
+    "languages": ["en", "cn"],
+    "years_active": 5,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  }
+]

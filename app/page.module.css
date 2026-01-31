@@ -1,0 +1,687 @@
+/* メインコンテナ */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  min-height: 100vh;
+}
+
+/* ヒーローセクション */
+.hero {
+  text-align: center;
+  margin-bottom: 64px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6a6a6a;
+  font-weight: 400;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: #3a3a3a;
+  font-weight: 500;
+  margin-top: 20px;
+  letter-spacing: 0.05em;
+}
+
+/* 特徴セクション（3つのカード） */
+.featuresSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 64px;
+  animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.featureCard:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+
+.featureIllustration {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.illustrationIcon {
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
+  opacity: 0.7;
+}
+
+.illustrationIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.featureDescription {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+/* フォームカード */
+.formCard {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 48px 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  margin-bottom: 48px;
+  animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+.form {
+  margin: 0;
+}
+
+.formSection {
+  margin-bottom: 0;
+}
+
+.formGroup {
+  margin-bottom: 32px;
+}
+
+.formGroup:last-child {
+  margin-bottom: 0;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid #e0ddd8;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #ffffff;
+  color: #4a4a4a;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.formGroup input[type="text"]:focus,
+.formGroup input[type="number"]:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #9bb5c0;
+  box-shadow: 0 0 0 3px rgba(155, 181, 192, 0.1);
+  background: #ffffff;
+}
+
+.formGroup select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a6a6a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 42px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* チェックボックスグループ */
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.checkboxGroup label {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #faf8f5;
+  border: 1.5px solid #e8e5e0;
+  transition: all 0.3s ease;
+  margin-bottom: 0;
+}
+
+.checkboxGroup label:hover {
+  background: #f5f2ed;
+  border-color: #d4a574;
+}
+
+.checkboxGroup input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  cursor: pointer;
+  appearance: none;
+  border: 2px solid #c0bdb5;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.checkboxGroup input[type="checkbox"]:checked {
+  background: #9bb5c0;
+  border-color: #9bb5c0;
+}
+
+.checkboxGroup input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 送信ボタン */
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, #9bb5c0 0%, #8aa5b0 100%);
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(155, 181, 192, 0.25);
+  letter-spacing: 0.02em;
+  margin-top: 8px;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(155, 181, 192, 0.35);
+  background: linear-gradient(135deg, #8aa5b0 0%, #7a95a0 100%);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 結果セクション */
+.results {
+  margin-top: 64px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.resultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.resultsTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin: 0;
+  letter-spacing: -0.01em;
+  flex: 1;
+  min-width: 200px;
+}
+
+.planBadge {
+  display: flex;
+  align-items: center;
+}
+
+.planLabel {
+  background: linear-gradient(135deg, #e8e5e0 0%, #d4d1cc 100%);
+  color: #6a6a6a;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+.planLabelPremium {
+  background: linear-gradient(135deg, #d4a574 0%, #c49564 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(212, 165, 116, 0.25);
+  white-space: nowrap;
+}
+
+.upgradePrompt {
+  background: linear-gradient(135deg, #f5f2ed 0%, #faf8f5 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin-top: 32px;
+  border: 2px solid #d4a574;
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.upgradeContent {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.upgradeTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.upgradeDescription {
+  font-size: 0.95rem;
+  color: #6a6a6a;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.priceInfo {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f5f2ed 0%, #faf8f5 100%);
+  border-radius: 12px;
+  border: 1px solid #e8e5e0;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3a3a3a;
+  letter-spacing: -0.02em;
+}
+
+.priceUnit {
+  font-size: 1rem;
+  color: #6a6a6a;
+  font-weight: 500;
+}
+
+.unlimited {
+  font-size: 0.9rem;
+  color: #d4a574;
+  font-weight: 600;
+  margin-left: 8px;
+  padding: 4px 12px;
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 12px;
+}
+
+.upgradeButton {
+  background: linear-gradient(135deg, #d4a574 0%, #c49564 100%);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(212, 165, 116, 0.25);
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.upgradeButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.35);
+  background: linear-gradient(135deg, #c49564 0%, #b48554 100%);
+}
+
+.upgradeButton:active {
+  transform: translateY(0);
+}
+
+.upgradeNote {
+  font-size: 0.8rem;
+  color: #9a9a9a;
+  margin: 0;
+  font-style: italic;
+}
+
+/* 会社カード */
+.companyCard {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.companyCard:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.lockedCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.lockedOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 16px;
+  border: 2px dashed #d4a574;
+}
+
+.lockIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.lockedText {
+  font-size: 1rem;
+  color: #6a6a6a;
+  font-weight: 500;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.companyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e5e0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.companyHeader h3 {
+  color: #3a3a3a;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.4;
+  flex: 1;
+  min-width: 200px;
+}
+
+.score {
+  background: linear-gradient(135deg, #a8c5a0 0%, #98b590 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(168, 197, 160, 0.25);
+  white-space: nowrap;
+}
+
+.companyInfo {
+  color: #5a5a5a;
+  line-height: 1.8;
+}
+
+.companyInfo p {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.companyInfo strong {
+  color: #4a4a4a;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.link {
+  color: #9bb5c0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.link:hover {
+  color: #7a95a0;
+  border-bottom-color: #7a95a0;
+}
+
+.reasons {
+  margin-top: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f2ed 0%, #faf8f5 100%);
+  border-radius: 12px;
+  border: 1px solid #e8e5e0;
+}
+
+.reasons strong {
+  display: block;
+  color: #4a4a4a;
+  font-weight: 500;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.reasons ul {
+  margin-left: 20px;
+  margin-top: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.reasons li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.9rem;
+  color: #6a6a6a;
+  line-height: 1.6;
+}
+
+.reasons li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #9bb5c0;
+  font-weight: bold;
+}
+
+/* 結果なし */
+.noResults {
+  text-align: center;
+  padding: 80px 24px;
+  color: #8a8a8a;
+  font-size: 1rem;
+}
+
+/* フッター */
+.footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid #e8e5e0;
+  text-align: center;
+  font-size: 10px;
+  color: #9a9a9a;
+  letter-spacing: 0.05em;
+}
+
+.footerLink {
+  color: #9a9a9a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: #7a7a7a;
+  text-decoration: none;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .featuresSection {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .featureCard {
+    padding: 28px 24px;
+  }
+
+  .featureIllustration {
+    height: 100px;
+  }
+
+  .illustrationIcon {
+    max-width: 100px;
+    height: 100px;
+  }
+
+  .formCard {
+    padding: 32px 24px;
+  }
+
+  .companyHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .score {
+    align-self: flex-start;
+  }
+
+  .resultsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resultsTitle {
+    text-align: left;
+  }
+
+  .upgradePrompt {
+    padding: 32px 24px;
+  }
+
+  .upgradeTitle {
+    font-size: 1.2rem;
+  }
+}
