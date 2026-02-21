@@ -7,15 +7,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "./deploy.sh"
   },
-  "keywords": ["OEM", "manufacturing", "supplier"],
+  "keywords": [
+    "OEM",
+    "manufacturing",
+    "supplier"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@stripe/stripe-js": "^8.7.0",
+    "@swc/helpers": "^0.5.18",
+    "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "next": "^14.0.0"
+    "stripe": "^20.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

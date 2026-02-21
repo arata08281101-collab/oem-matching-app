@@ -451,6 +451,62 @@ export function matchCompanies(
       }
     }
 
+    // 商品説明に基づくスコアリング（最大10点）
+    if (userInput.productDescription && userInput.productDescription.trim()) {
+      const description = userInput.productDescription.toLowerCase();
+      let descriptionScore = 0;
+      const descriptionReasons: string[] = [];
+
+      // キーワードマッチング
+      const keywords = {
+        'vintage': ['ヴィンテージ', 'vintage', '古着', 'レトロ'],
+        'heavyweight': ['ヘビーウェイト', 'heavyweight', '厚手', '重い'],
+        'street': ['ストリート', 'street', 'ストリートファッション'],
+        'small_lot': ['小ロット', '少量', 'small lot', '少数量'],
+        'custom': ['カスタム', 'custom', 'オリジナル', 'オーダー'],
+        'distressed': ['ディストレス', 'distressed', '加工', 'ワッシュ'],
+        'embroidery': ['刺繍', 'embroidery', '刺しゅう'],
+        'print': ['プリント', 'print', '印刷'],
+      };
+
+      // 各キーワードが説明に含まれているかチェック
+      for (const [key, terms] of Object.entries(keywords)) {
+        if (terms.some(term => description.includes(term))) {
+          // 会社の特徴やcapabilitiesと一致する場合にスコアを追加
+          if (key === 'vintage' && company.features?.vintage) {
+            descriptionScore += 2;
+            descriptionReasons.push('ヴィンテージ対応がマッチ');
+          } else if (key === 'heavyweight' && company.features?.heavyweight) {
+            descriptionScore += 2;
+            descriptionReasons.push('ヘビーウェイト対応がマッチ');
+          } else if (key === 'street' && company.features?.street_focused) {
+            descriptionScore += 2;
+            descriptionReasons.push('ストリートファッション対応がマッチ');
+          } else if (key === 'small_lot' && company.features?.small_lot) {
+            descriptionScore += 2;
+            descriptionReasons.push('小ロット対応がマッチ');
+          } else if (key === 'distressed' && company.features?.distressed) {
+            descriptionScore += 1.5;
+            descriptionReasons.push('ディストレス加工対応がマッチ');
+          } else if (key === 'embroidery' && company.capabilities.some(cap => cap.includes('embroidery') || cap.includes('刺繍'))) {
+            descriptionScore += 1.5;
+            descriptionReasons.push('刺繍対応がマッチ');
+          } else if (key === 'print' && company.capabilities.some(cap => cap.includes('print') || cap.includes('プリント') || cap.includes('印刷'))) {
+            descriptionScore += 1.5;
+            descriptionReasons.push('プリント対応がマッチ');
+          } else if (key === 'custom') {
+            descriptionScore += 1;
+            descriptionReasons.push('カスタム対応がマッチ');
+          }
+        }
+      }
+
+      score += Math.min(10, descriptionScore);
+      if (descriptionReasons.length > 0) {
+        reasons.push(`商品説明マッチ: ${descriptionReasons.join(', ')}`);
+      }
+    }
+
     // 多様性のためのランダム要素を追加（±5%の変動）
     const finalScore = addDiversityToScore(score, company.id);
 

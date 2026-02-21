@@ -574,5 +574,153 @@
     "years_active": 5,
     "trust_score": 5,
     "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_007",
+    "name": "Guangzhou Raise Garment Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "hoodie", "cap"],
+    "moq_min": 100,
+    "price_range": [330, 645],
+    "lead_time_days": [10, 25],
+    "features": {
+      "mass_production": true
+    },
+    "capabilities": ["print", "embroidery", "label", "custom_logo"],
+    "languages": ["en", "cn"],
+    "years_active": 5,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_008",
+    "name": "Guangzhou Yuedong Clothing Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "hoodie"],
+    "moq_min": 10,
+    "price_range": [492, 582],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true,
+      "street_focused": true
+    },
+    "capabilities": ["print", "embroidery", "digital_print", "label", "custom_logo"],
+    "languages": ["en", "cn"],
+    "years_active": 5,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_009",
+    "name": "Guangzhou Taobo Industrial Trading Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt", "hoodie", "cap"],
+    "moq_min": 10,
+    "price_range": [447, 582],
+    "lead_time_days": [5, 15],
+    "features": {
+      "street_focused": true,
+      "mass_production": true
+    },
+    "capabilities": ["print", "label", "custom_logo"],
+    "languages": ["en", "cn"],
+    "years_active": 0,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_010",
+    "name": "Nuolang (Guangdong) Garment Industry Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["tshirt"],
+    "moq_min": 30,
+    "price_range": [285, 495],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true
+    },
+    "capabilities": ["print", "embroidery", "custom_logo", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 13,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_011",
+    "name": "Baoding Yu Kai He Clothing Import & Export Co., Ltd.",
+    "country": "China",
+    "region": "Hebei",
+    "categories": ["cap"],
+    "moq_min": 20,
+    "price_range": [180, 585],
+    "lead_time_days": [7, 18],
+    "features": {
+      "street_focused": true,
+      "small_lot": true
+    },
+    "capabilities": ["embroidery", "custom_logo", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 9,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_012",
+    "name": "Dongguan C-Ray Headwear Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["cap"],
+    "moq_min": 25,
+    "price_range": [150, 1020],
+    "lead_time_days": [7, 20],
+    "features": {
+      "small_lot": true
+    },
+    "capabilities": ["embroidery", "custom_logo", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 3,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_013",
+    "name": "Qingdao Caps Hat Co., Ltd. (Capfix)",
+    "country": "China",
+    "region": "Shandong",
+    "categories": ["cap"],
+    "moq_min": 10,
+    "price_range": [84, 704],
+    "lead_time_days": [7, 25],
+    "features": {
+      "mass_production": true
+    },
+    "capabilities": ["embroidery", "print", "custom_logo", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 10,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
+  },
+  {
+    "id": "mic_014",
+    "name": "Dongguan Monkey Clothes Co., Ltd.",
+    "country": "China",
+    "region": "Guangdong",
+    "categories": ["cap"],
+    "moq_min": 10,
+    "price_range": [600, 975],
+    "lead_time_days": [7, 18],
+    "features": {
+      "street_focused": true,
+      "small_lot": true
+    },
+    "capabilities": ["embroidery", "custom_logo", "label"],
+    "languages": ["en", "cn"],
+    "years_active": 5,
+    "trust_score": 5,
+    "made_in_china_company_url": "https://www.made-in-china.com"
   }
 ]

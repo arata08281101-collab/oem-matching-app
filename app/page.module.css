@@ -64,6 +64,40 @@
   transform: translateY(-4px);
 }
 
+/* メダルカラーのスタイル */
+.featureCardGold {
+  border: 2px solid #FFD700;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+  box-shadow: 0 2px 16px rgba(255, 215, 0, 0.15), 0 0 0 1px rgba(255, 215, 0, 0.1);
+}
+
+.featureCardGold:hover {
+  box-shadow: 0 4px 24px rgba(255, 215, 0, 0.25), 0 0 0 1px rgba(255, 215, 0, 0.2);
+  border-color: #FFC700;
+}
+
+.featureCardSilver {
+  border: 2px solid #C0C0C0;
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+  box-shadow: 0 2px 16px rgba(192, 192, 192, 0.15), 0 0 0 1px rgba(192, 192, 192, 0.1);
+}
+
+.featureCardSilver:hover {
+  box-shadow: 0 4px 24px rgba(192, 192, 192, 0.25), 0 0 0 1px rgba(192, 192, 192, 0.2);
+  border-color: #B0B0B0;
+}
+
+.featureCardBronze {
+  border: 2px solid #CD7F32;
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+  box-shadow: 0 2px 16px rgba(205, 127, 50, 0.15), 0 0 0 1px rgba(205, 127, 50, 0.1);
+}
+
+.featureCardBronze:hover {
+  box-shadow: 0 4px 24px rgba(205, 127, 50, 0.25), 0 0 0 1px rgba(205, 127, 50, 0.2);
+  border-color: #B87333;
+}
+
 
 .featureIllustration {
   margin-bottom: 24px;
@@ -100,6 +134,162 @@
   line-height: 1.7;
   margin: 0;
   flex: 1;
+}
+
+/* プレミアプラン情報セクション */
+.premiumInfoSection {
+  margin-bottom: 48px;
+  margin-top: 32px;
+  animation: fadeIn 0.8s ease-out 0.5s both;
+}
+
+.premiumInfoCard {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 2px solid #4a9b8e;
+}
+
+.premiumInfoTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.premiumInfoPrice {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a9b8e;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.premiumInfoDescription {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.premiumFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.premiumFeature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(74, 155, 142, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #4a9b8e;
+}
+
+.premiumFeatureIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.premiumFeatureContent {
+  flex: 1;
+}
+
+.premiumFeatureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 6px;
+}
+
+.premiumFeatureText {
+  font-size: 0.85rem;
+  color: #6a6a6a;
+  line-height: 1.5;
+}
+
+.premiumPrice {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #4a9b8e 0%, #3a8a7d 100%);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.premiumPriceAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-right: 6px;
+}
+
+.premiumPriceUnit {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.premiumNote {
+  font-size: 0.85rem;
+  color: #8a8a8a;
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .premiumInfoCard {
+    padding: 20px;
+  }
+
+  .premiumInfoTitle {
+    font-size: 1.2rem;
+  }
+
+  .premiumInfoPrice {
+    font-size: 1rem;
+  }
+
+  .premiumInfoDescription {
+    font-size: 0.85rem;
+  }
+
+  .premiumFeature {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .premiumFeatureIcon {
+    margin: 0 auto;
+    font-size: 1.3rem;
+  }
+
+  .premiumFeatureTitle {
+    font-size: 0.95rem;
+  }
+
+  .premiumFeatureText {
+    font-size: 0.8rem;
+  }
+
+  .premiumPrice {
+    padding: 16px;
+  }
+
+  .premiumPriceAmount {
+    font-size: 1.6rem;
+  }
+
+  .premiumPriceUnit {
+    font-size: 0.9rem;
+  }
 }
 
 /* フォームカード */
@@ -683,5 +873,238 @@
 
   .upgradeTitle {
     font-size: 1.2rem;
+  }
+}
+
+/* 翻訳セクション */
+.translationSection {
+  margin-top: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f2ed 0%, #faf8f5 100%);
+  border-radius: 12px;
+  border: 1px solid #e8e5e0;
+}
+
+.translationTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.translationDescription {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.translationInput {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid #e0ddd8;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #ffffff;
+  color: #4a4a4a;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.translationInput:focus {
+  outline: none;
+  border-color: #9bb5c0;
+  box-shadow: 0 0 0 3px rgba(155, 181, 192, 0.1);
+  background: #ffffff;
+}
+
+.translationInput::placeholder {
+  color: #9a9a9a;
+}
+
+.translationButtons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.translateButton {
+  background: linear-gradient(135deg, #9bb5c0 0%, #8aa5b0 100%);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(155, 181, 192, 0.25);
+  letter-spacing: 0.02em;
+}
+
+.translateButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(155, 181, 192, 0.35);
+  background: linear-gradient(135deg, #8aa5b0 0%, #7a95a0 100%);
+}
+
+.translateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.copyButton {
+  background: linear-gradient(135deg, #d4a574 0%, #c49564 100%);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(212, 165, 116, 0.25);
+  letter-spacing: 0.02em;
+}
+
+.copyButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.35);
+  background: linear-gradient(135deg, #c49564 0%, #b48554 100%);
+}
+
+.translatedResult {
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e8e5e0;
+}
+
+.translatedResult strong {
+  display: block;
+  color: #4a4a4a;
+  font-weight: 500;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.translatedText {
+  color: #3a3a3a;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 検索結果が少ない場合の警告表示 */
+.lowResultsWarning {
+  background: rgba(255, 248, 240, 0.9);
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.warningTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d4a574;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.warningDescription {
+  font-size: 0.95rem;
+  color: #6a6a6a;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.warningList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.warningList li {
+  font-size: 0.9rem;
+  color: #5a5a5a;
+  padding: 8px 0 8px 24px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.warningList li::before {
+  content: '•';
+  position: absolute;
+  left: 8px;
+  color: #d4a574;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.warningSuggestion {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .lowResultsWarning {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .warningTitle {
+    font-size: 1.1rem;
+  }
+
+  .warningDescription {
+    font-size: 0.9rem;
+  }
+
+  .warningList li {
+    font-size: 0.85rem;
+    padding-left: 20px;
+  }
+
+  .warningSuggestion {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .translationSection {
+    padding: 20px;
+    margin-top: 24px;
+  }
+
+  .translationTitle {
+    font-size: 1rem;
+  }
+
+  .translationDescription {
+    font-size: 0.85rem;
+  }
+
+  .translationButtons {
+    flex-direction: column;
+  }
+
+  .translateButton,
+  .copyButton {
+    width: 100%;
   }
 }

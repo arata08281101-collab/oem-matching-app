@@ -1,10 +1,13 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
 import { matchCompanies } from '@/lib/matching'
-import { UserInput, MatchResult } from '@/lib/types'
-import companiesData from '@/data/companies.json'
+import { UserInput, MatchResult, Company } from '@/lib/types'
+import companiesDataRaw from '@/data/companies.json'
 import styles from './page.module.css'
+
+// JSONデータを正しい型に変換
+const companiesData = companiesDataRaw as Company[]
 
 // capabilitiesの日本語表示マッピング
 const capabilityLabels: Record<string, string> = {
@@ -24,10 +27,94 @@ const capabilityLabels: Record<string, string> = {
   'bulk_production': '大量生産',
 }
 
+// 検索結果が少ない理由を分析する関数
+function analyzeLowResults(
+  companies: Company[],
+  userInput: UserInput,
+  matchedCount: number
+): string[] {
+  const reasons: string[] = []
+  
+  // カテゴリに該当する企業数を確認
+  const categoryCompanies = companies.filter(c => c.categories.includes(userInput.category))
+  if (categoryCompanies.length === 0) {
+    reasons.push(`「${userInput.category === 'tshirt' ? 'Tシャツ' : userInput.category === 'cap' ? 'キャップ' : 'フーディ'}」カテゴリに該当する企業が登録されていません`)
+    return reasons
+  }
+  
+  // 実績年数のフィルタリング
+  if (userInput.minYearsActive) {
+    const yearsFiltered = categoryCompanies.filter(c => c.years_active >= userInput.minYearsActive!)
+    if (yearsFiltered.length < categoryCompanies.length * 0.3) {
+      reasons.push(`実績年数「${userInput.minYearsActive}年以上」の条件が厳しすぎる可能性があります（該当: ${yearsFiltered.length}社 / 全${categoryCompanies.length}社）`)
+    }
+  }
+  
+  // MOQのチェック
+  const moqFiltered = categoryCompanies.filter(c => userInput.quantity >= c.moq_min)
+  if (moqFiltered.length < categoryCompanies.length * 0.3) {
+    const avgMoq = categoryCompanies.reduce((sum, c) => sum + c.moq_min, 0) / categoryCompanies.length
+    reasons.push(`数量「${userInput.quantity.toLocaleString()}個」が少なすぎる可能性があります（平均MOQ: ${Math.round(avgMoq).toLocaleString()}個）`)
+  }
+  
+  // 予算のチェック
+  const budgetFiltered = categoryCompanies.filter(c => {
+    const averagePrice = (c.price_range[0] + c.price_range[1]) / 2
+    const minCost = averagePrice * c.moq_min
+    return minCost <= userInput.budget
+  })
+  if (budgetFiltered.length < categoryCompanies.length * 0.3) {
+    const avgMinCost = categoryCompanies
+      .map(c => {
+        const avgPrice = (c.price_range[0] + c.price_range[1]) / 2
+        return avgPrice * c.moq_min
+      })
+      .reduce((sum, cost) => sum + cost, 0) / categoryCompanies.length
+    reasons.push(`予算「¥${userInput.budget.toLocaleString()}」が低すぎる可能性があります（平均必要予算: ¥${Math.round(avgMinCost).toLocaleString()}）`)
+  }
+  
+  // 必須条件のチェック
+  if (userInput.requiredCapabilities.length > 0) {
+    const capabilityFiltered = categoryCompanies.filter(c => {
+      return userInput.requiredCapabilities.every(req => c.capabilities.includes(req))
+    })
+    if (capabilityFiltered.length < categoryCompanies.length * 0.3) {
+      reasons.push(`必須条件「${userInput.requiredCapabilities.map(cap => capabilityLabels[cap] || cap).join('、')}」が厳しすぎる可能性があります（該当: ${capabilityFiltered.length}社 / 全${categoryCompanies.length}社）`)
+    }
+  }
+  
+  return reasons
+}
+
 export default function Home() {
   const [results, setResults] = useState<MatchResult[]>([])
   const [isSearching, setIsSearching] = useState(false)
   const [plan, setPlan] = useState<'free' | 'premium'>('free')
+  const [isLoadingCheckout, setIsLoadingCheckout] = useState(false)
+  const [lastUserInput, setLastUserInput] = useState<UserInput | null>(null)
+
+  // コンポーネントマウント時にプレミアムプランの状態を確認
+  useEffect(() => {
+    const checkPremiumStatus = () => {
+      try {
+        const premiumData = localStorage.getItem('premium_subscription')
+        if (premiumData) {
+          const subscription = JSON.parse(premiumData)
+          const now = Date.now()
+          // 有効期限をチェック
+          if (subscription.expiresAt && subscription.expiresAt > now) {
+            setPlan('premium')
+          } else {
+            // 期限切れの場合は削除
+            localStorage.removeItem('premium_subscription')
+          }
+        }
+      } catch (error) {
+        console.error('プレミアムプラン状態の確認エラー:', error)
+      }
+    }
+    checkPremiumStatus()
+  }, [])
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -60,7 +147,42 @@ export default function Home() {
     // マッチング実行
     const matchedResults = matchCompanies(companiesData, userInput)
     setResults(matchedResults)
+    setLastUserInput(userInput)
     setIsSearching(false)
+  }
+
+
+  const handleUpgrade = async () => {
+    setIsLoadingCheckout(true)
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+      })
+
+      const data = await response.json()
+
+      if (data.error) {
+        alert(`エラー: ${data.error}`)
+        setIsLoadingCheckout(false)
+        return
+      }
+
+      // Stripe Checkoutにリダイレクト
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        alert('決済ページのURLを取得できませんでした')
+        setIsLoadingCheckout(false)
+      }
+    } catch (error) {
+      console.error('決済セッション作成エラー:', error)
+      alert('決済ページへの接続に失敗しました。しばらくしてから再度お試しください。')
+      setIsLoadingCheckout(false)
+    }
   }
 
   return (
@@ -75,7 +197,7 @@ export default function Home() {
       </div>
 
       <div className={styles.featuresSection}>
-        <div className={styles.featureCard}>
+        <div className={`${styles.featureCard} ${styles.featureCardGold}`}>
           <div className={styles.featureIllustration}>
             <div className={styles.illustrationIcon}>
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +236,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className={styles.featureCard}>
+        <div className={`${styles.featureCard} ${styles.featureCardSilver}`}>
           <div className={styles.featureIllustration}>
             <div className={styles.illustrationIcon}>
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +276,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className={styles.featureCard}>
+        <div className={`${styles.featureCard} ${styles.featureCardBronze}`}>
           <div className={styles.featureIllustration}>
             <div className={styles.illustrationIcon}>
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,7 +303,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      
+
       <div className={styles.formCard}>
         <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formSection}>
@@ -267,6 +389,44 @@ export default function Home() {
         </form>
       </div>
 
+      {/* プレミアプランセクション */}
+      <div className={styles.premiumInfoSection}>
+        <div className={styles.premiumInfoCard}>
+          <h2 className={styles.premiumInfoTitle}>プレミアプラン</h2>
+          <p className={styles.premiumInfoPrice}>月額480円（税込）</p>
+          <p className={styles.premiumInfoDescription}>
+            OEM企業の詳細情報閲覧・上位表示機能が利用できます。以下の特典をご利用いただけます。
+          </p>
+          <div className={styles.premiumFeatures}>
+            <div className={styles.premiumFeature}>
+              <span className={styles.premiumFeatureIcon}>⭐</span>
+              <div className={styles.premiumFeatureContent}>
+                <h3 className={styles.premiumFeatureTitle}>上位2社の詳細情報を閲覧可能</h3>
+                <p className={styles.premiumFeatureText}>
+                  検索結果のスコア上位1位・2位の企業の詳細情報（価格、納期、対応機能など）を確認できます。
+                </p>
+              </div>
+            </div>
+            <div className={styles.premiumFeature}>
+              <span className={styles.premiumFeatureIcon}>♾️</span>
+              <div className={styles.premiumFeatureContent}>
+                <h3 className={styles.premiumFeatureTitle}>使い放題</h3>
+                <p className={styles.premiumFeatureText}>
+                  検索回数に制限はありません。何度でもご利用いただけます。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.premiumPrice}>
+            <span className={styles.premiumPriceAmount}>¥480</span>
+            <span className={styles.premiumPriceUnit}>/月（税込）</span>
+          </div>
+          <p className={styles.premiumNote}>
+            ※ いつでもキャンセル可能です。解約後、次回更新日以降は課金されません。
+          </p>
+        </div>
+      </div>
+
       {results.length > 0 && (
         <div className={styles.results}>
           <div className={styles.resultsHeader}>
@@ -286,6 +446,24 @@ export default function Home() {
               </div>
             )}
           </div>
+          
+          {/* 検索結果が3つ以下の場合、理由を表示 */}
+          {results.length <= 3 && lastUserInput && (
+            <div className={styles.lowResultsWarning}>
+              <h3 className={styles.warningTitle}>⚠️ 検索結果が少ない理由</h3>
+              <p className={styles.warningDescription}>
+                検索結果が{results.length}社と少ないです。以下の要因が考えられます：
+              </p>
+              <ul className={styles.warningList}>
+                {analyzeLowResults(companiesData, lastUserInput, results.length).map((reason, index) => (
+                  <li key={index}>{reason}</li>
+                ))}
+              </ul>
+              <p className={styles.warningSuggestion}>
+                💡 より多くの結果を得るには、条件を緩和することをお試しください（例：実績年数の条件を下げる、予算を上げる、必須条件を減らすなど）
+              </p>
+            </div>
+          )}
           
           {/* 有料プラン：1位、2位を表示 */}
           {plan === 'premium' && results.length > 0 && (
@@ -343,14 +521,6 @@ export default function Home() {
                     <p><strong>対応言語:</strong> {result.company.languages.join(', ')}</p>
                     <p><strong>実績年数:</strong> {result.company.years_active}年</p>
                     <p><strong>信頼スコア:</strong> {result.company.trust_score}/5</p>
-                    {result.company.alibaba_company_url && (
-                      <p>
-                        <strong>Alibaba:</strong>{' '}
-                        <a href={result.company.alibaba_company_url} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                          {result.company.alibaba_company_url}
-                        </a>
-                      </p>
-                    )}
                     <div className={styles.reasons}>
                       <strong>マッチした理由:</strong>
                       <ul>
@@ -360,6 +530,7 @@ export default function Home() {
                       </ul>
                     </div>
                   </div>
+                  
                 </div>
               ))}
             </>
@@ -490,14 +661,6 @@ export default function Home() {
                   <p><strong>対応言語:</strong> {result.company.languages.join(', ')}</p>
                   <p><strong>実績年数:</strong> {result.company.years_active}年</p>
                   <p><strong>信頼スコア:</strong> {result.company.trust_score}/5</p>
-                  {result.company.alibaba_company_url && (
-                    <p>
-                      <strong>Alibaba:</strong>{' '}
-                      <a href={result.company.alibaba_company_url} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                        {result.company.alibaba_company_url}
-                      </a>
-                    </p>
-                  )}
                   <div className={styles.reasons}>
                     <strong>マッチした理由:</strong>
                     <ul>
@@ -507,6 +670,7 @@ export default function Home() {
                     </ul>
                   </div>
                 </div>
+                
               </div>
             );
           })}
@@ -515,21 +679,22 @@ export default function Home() {
               <div className={styles.upgradeContent}>
                 <h3 className={styles.upgradeTitle}>上位2社の詳細を見る</h3>
                 <p className={styles.upgradeDescription}>
-                  プレミアムプラン（月額980円・使い放題）にアップグレードすると、スコア上位1位・2位の企業の詳細情報を確認できます。
+                  プレミアムプラン（月額480円・使い放題）にアップグレードすると、スコア上位1位・2位の企業の詳細情報を確認できます。
                 </p>
                 <div className={styles.priceInfo}>
-                  <span className={styles.price}>¥980</span>
+                  <span className={styles.price}>¥480</span>
                   <span className={styles.priceUnit}>/月</span>
                   <span className={styles.unlimited}>使い放題</span>
                 </div>
                 <button 
-                  onClick={() => setPlan('premium')} 
+                  onClick={handleUpgrade}
                   className={styles.upgradeButton}
+                  disabled={isLoadingCheckout}
                 >
-                  プレミアムプランにアップグレード
+                  {isLoadingCheckout ? '決済ページに移動中...' : 'プレミアムプランにアップグレード'}
                 </button>
                 <p className={styles.upgradeNote}>
-                  ※ 現在はデモモードです。実際の決済は発生しません。
+                  ※ 月額480円（税込）のサブスクリプションです。いつでもキャンセル可能です。
                 </p>
               </div>
             </div>
@@ -542,16 +707,6 @@ export default function Home() {
           <p>条件を入力して検索してください。</p>
         </div>
       )}
-
-      <footer className={styles.footer}>
-        <a href="https://www.alibaba.com" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
-          ALIBABA
-        </a>
-        {' | '}
-        <a href="https://www.made-in-china.com" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
-          MADE IN CHINA
-        </a>
-      </footer>
     </div>
   )
 }
